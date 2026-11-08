@@ -1,32 +1,28 @@
-# React + TypeScript + Vite
+React + TS
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+● Upload images and store them using an API
+● Search for images by name using an input box and the API
+● List all uploaded images
+● Delete single image
 
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
-
-## React Compiler
-
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the Oxlint configuration
-
-If you are developing a production application, we recommend enabling type-aware lint rules by installing `oxlint-tsgolint` and editing `.oxlintrc.json`:
-
-```json
-{
-  "$schema": "./node_modules/oxlint/configuration_schema.json",
-  "plugins": ["react", "typescript", "oxc"],
-  "options": {
-    "typeAware": true
-  },
-  "rules": {
-    "react/rules-of-hooks": "error",
-    "react/only-export-components": ["warn", { "allowConstantExport": true }]
+Create type for image 
+ImageDetails {
+  id: string,
+  name: string,
+  size: number,
+  ext: string,
+  path: string,
+  uploadDetails: {
+    userId: name,
+    uploadedAt: string (could use datetime)
   }
 }
-```
+write out fetches for search, upload and delete so this functiuonality stays out of the components
 
-See the [Oxlint rules documentation](https://oxc.rs/docs/guide/usage/linter/rules) for the full list of rules and categories.
+● Style the page to your liking
+Use semantic elements 
+create page, searchinput, gridview with delete option (not specified on image)
+Might have to change display strategy for large number of files/ paginated view or table with expandable row
+
+Styling: Will start with MAT UI 
+Tests
