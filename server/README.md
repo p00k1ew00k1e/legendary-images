@@ -13,9 +13,13 @@ GET from /api/imageStore?img=input
 GET from /api/imageStore
 
 - Delete single image
-DELETE /api/imageStore/id Reponse Empty
-
+DELETE /api/imageStore/:id Reponse Empty needs :id to be dynamic
+Ref https://expressjs.com/en/5x/guide/routing/
 
 Success and Error handling
 https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Status/201
 
+Server -
+    src (Code lives here)
+    data (local store (use DB in actual prod code))
+    uploads (files) gitkeep in empty dirs to maintain structure

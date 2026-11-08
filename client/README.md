@@ -5,7 +5,7 @@ React + TS
 ● List all uploaded images
 ● Delete single image
 
-Create type for image 
+<!-- Create type for image 
 ImageDetails {
   id: string,
   name: string,
@@ -13,10 +13,10 @@ ImageDetails {
   ext: string,
   path: string,
   uploadDetails: {
-    userId: name,
+    userId: string,
     uploadedAt: string (could use datetime)
   }
-}
+} --> We only need the filename based on the reqs so abandon the metadata stuff for now
 write out fetches for search, upload and delete so this functiuonality stays out of the components
 
 ● Style the page to your liking
