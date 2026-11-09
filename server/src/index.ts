@@ -6,8 +6,8 @@ import path from 'path';
 import fs from 'fs';
 
 const PORT = process.env.PORT || 3000;
-const ACCEPTED_TYPES = ['image/jpeg', 'image/png', 'image/gif'];
-const MAX_FILE_SIZE = 5 * 1024 * 1024; // 5MB
+// const ACCEPTED_TYPES = ['image/jpeg', 'image/png', 'image/gif'];
+// const MAX_FILE_SIZE = 5 * 1024 * 1024; // 5MB
 
 const UPLOADS_DIR = path.join(import.meta.dirname, '../uploads');
 
@@ -26,7 +26,7 @@ app.get('/api/images', (req: Request, res: Response) => {
 })
 
 // Upload referenced https://medium.com/@pirson/uploading-files-in-express-js-using-multer-ff8fa5900d15
-//Following code snippet copied from link 
+//Following code snippet copied from link TODO: SWAP OUT WITH OWN LOGIC
 ///////////
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
@@ -39,20 +39,20 @@ const storage = multer.diskStorage({
 });
 const upload = multer({ storage: storage });
 // Route for file upload
-app.post('/upload', upload.single('file'), (req, res) => {
+app.post('/api/images', upload.single('file'), (req, res) => {
   if (!req.file) {
     return res.status(400).send('No file uploaded!');
   }
-  res.send(`File uploaded successfully! Filename: ${req.file.filename}`);
+  res.status(200).json(`File uploaded successfully! Filename: ${req.file.filename}`);
 });
 //////////////End of copied code snippet
 
 // Delete
 app.delete('/api/images/:filename', (req: Request, res: Response) => {
-    const deletePath = path.join(UPLOADS_DIR, path.basename(req.params.filename[0]));
+    const deletePath = path.join(UPLOADS_DIR, path.basename(req.params.filename as string));
     if (fs.existsSync(deletePath)) {
         fs.unlinkSync(deletePath);
-        res.send('File deleted');
+        res.json('File deleted');
     } else {
         res.status(404).send('File not found');
     }
