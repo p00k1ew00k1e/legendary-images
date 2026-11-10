@@ -6,7 +6,6 @@
     "strict": true,
     "esModuleInterop": true,
     "skipLibCheck": true,
-    "src": ["src"],
     "outDir": "dist"
   },
   "references": [

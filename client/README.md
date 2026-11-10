@@ -26,3 +26,13 @@ Might have to change display strategy for large number of files/ paginated view 
 
 Styling: Will start with MAT UI 
 Tests
+
+  Will use
+    https://mui.com/material-ui/react-text-field/
+    https://mui.com/material-ui/react-image-list/
+
+  Nice to have 
+    https://mui.com/material-ui/react-progress/
+    https://mui.com/material-ui/react-pagination/
+
+    maybe tooltip for delete
