@@ -3,7 +3,7 @@ import { fetchImageList} from './API/apiActions';
 import type { ImageDetails } from './types/ImageDetails';
 import ImageDisplay from './components/imageDisplay/ImageDisplay';
 import ImageUpload from './components/ImageUpload/ImageUpload';
-import { Typography } from '@mui/material';
+import { Box, Container, Paper, Typography } from '@mui/material';
 import ImageSearch from './components/ImageSearch/ImageSearch';
 
 function App() {
@@ -26,15 +26,19 @@ function App() {
     
   return (
     <>
+      <Container maxWidth="md" sx={{py: 4}}>
+        <Paper variant="outlined" sx={{p: { xs:2, sm:3}}}>
+          <Box sx={{display: 'flex', gap:2, mb: 3}}>
+            <ImageSearch searchCallback={setSearch}/>
+            <ImageUpload imageCallback={setImgsUpdate}/>
+          </Box>
 
-      <ImageSearch searchCallback={setSearch}/>
+          <Typography component="span" color="text.secondary" sx={{fontWeight:600}} variant="body1">{images.length} images </Typography>
+          
+          <ImageDisplay imageCallback={setImgsUpdate} images={images}/>
 
-      <ImageUpload imageCallback={setImgsUpdate}/>
-
-      <Typography variant="body1">{images.length} images </Typography>
-      
-      <ImageDisplay imageCallback={setImgsUpdate} images={images}/>
-      
+        </Paper>
+      </Container>
     </>
   )   
 }

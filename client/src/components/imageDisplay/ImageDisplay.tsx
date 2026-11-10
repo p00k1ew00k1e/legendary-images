@@ -22,19 +22,26 @@ function ImageDisplay(props: {images: ImageDetails[], imageCallback: (imgsUpdate
       
   return (
       <>
-      <ImageList sx={{ width: 500, height: 450 }} cols={2} rowHeight={164}>
+      <ImageList gap={16} sx={{overflow: 'visible, m:0'}} cols={2} rowHeight={140}>
           {props.images.map((image) => (
         <ImageListItem key={image.filename}>
             <img 
             src={image.url}
-            alt={image.filename}        
+            alt={image.filename}  
+            style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}      
             />
             <ImageListItemBar
             title={image.filename}
             actionIcon={
             <IconButton 
               aria-label={`delete file ${image.filename}`}
-              onClick={() => handleDelete(image.filename)}>
+              onClick={() => handleDelete(image.filename)}
+              sx={{
+                position: "absolute",
+                top: 8,
+                right: 8,
+                color: "common.white",
+              }}>
             <Delete />
             </IconButton>
             }
