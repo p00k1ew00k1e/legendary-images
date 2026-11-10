@@ -6,7 +6,7 @@ import path from 'path';
 import fs from 'fs';
 
 const PORT = process.env.PORT || 3000;
-// const ACCEPTED_TYPES = ['image/jpeg', 'image/png', 'image/gif'];
+const ACCEPTED_TYPES = /\.(jpeg|png|gif)$/i;
 // const MAX_FILE_SIZE = 5 * 1024 * 1024; // 5MB
 
 const UPLOADS_DIR = path.join(import.meta.dirname, '../uploads');
@@ -17,7 +17,9 @@ app.use('/uploads', express.static(UPLOADS_DIR));
 
 // Search based on query param
 app.get('/api/images', (req: Request, res: Response) => {
-    const files = fs.readdirSync(UPLOADS_DIR).filter(file => file.includes(req.query.search as string || ''));
+    const files = fs.readdirSync(UPLOADS_DIR)
+        .filter((file) => ACCEPTED_TYPES.test(file))
+        .filter(file => file.includes(req.query.search as string || ''));
     const images = files.map(file => ({
         filename: file,
         url: `/uploads/${file}`
@@ -26,7 +28,7 @@ app.get('/api/images', (req: Request, res: Response) => {
 })
 
 // Upload referenced https://medium.com/@pirson/uploading-files-in-express-js-using-multer-ff8fa5900d15
-//Following code snippet copied from link TODO: SWAP OUT WITH OWN LOGIC
+//Following code snippet copied from link 
 ///////////
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
