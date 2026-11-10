@@ -4,7 +4,7 @@
 ```npm start```
 
 - Backend: Node Express (server/)
-- Frontend: React scaffolded with Vite 
+- Frontend: React scaffolded with Vite (client/)
 
 ## Requirements Implemented: 
 - React Application (SPA) CRUD app that can do the following:
