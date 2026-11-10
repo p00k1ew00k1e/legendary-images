@@ -1,24 +1,23 @@
-# Get started (requires node 20 or above)
+## Get started (requires node 20 or above)
 
-npm i
-npm start
+```npm i```
+```npm start```
 
-# Requirements Implemented: React Application (SPA) CRUD app that can do the following:
-● Upload images and store them using an API
-● Search for images by name using an input box and the API
-● List all uploaded images
-● Delete single image
-● Style the page to your liking
+- Backend: Node Express (server/)
+- Frontend: React scaffolded with Vite 
 
-# Backend: Node Express (server/)
-# Frontend: React scaffolded with Vite 
+## Requirements Implemented: 
+- React Application (SPA) CRUD app that can do the following:
+1. Upload images and store them using an API
+2. Search for images by name using an input box and the API
+3. List all uploaded images
+4. Delete single image
+5. Style the page to your liking
 
-Using Mat UI because of familiarity
-
-# Approximate time that it took you to complete this exercise
+## Approximate time that it took you to complete this exercise
 - Timeboxed at 10 hours
 
-# what you didn’t get to finish and would like to work on if you were given more time.
+## What you didn’t get to finish and would like to work on if you were given more time.
 
 1. Textarea don't search on each change
 2. input client side validation for files size and type
