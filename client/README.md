@@ -24,8 +24,6 @@ Use semantic elements
 create page, searchinput, gridview with delete option (not specified on image)
 Might have to change display strategy for large number of files/ paginated view or table with expandable row
 
-Styling: Will start with MAT UI 
-Tests
 
   Will use
     https://mui.com/material-ui/react-text-field/
@@ -34,5 +32,3 @@ Tests
   Nice to have 
     https://mui.com/material-ui/react-progress/
     https://mui.com/material-ui/react-pagination/
-
-    maybe tooltip for delete
